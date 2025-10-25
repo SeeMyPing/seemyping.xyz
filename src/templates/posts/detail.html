@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+
+<article class="post-detail">
+    <h1>{{ post.title }}</h1>
+    <h5>{% if post.is_published == False %} NOT {% endif %} Published by <i>{{ post.author_or_default }}</i> on {{ post.created_at|date:' j F Y' }}</h5>
+    <p>{{ post.content|linebreaks|safe }}</p>
+</article>
+
+{% endblock %}

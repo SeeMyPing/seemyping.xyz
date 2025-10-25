@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+{% for post in posts %}
+<article>
+    <div class="post-title">
+    <h2>{{ post.title }}</h2>
+        {% if request.user.is_authenticated %}
+            <div>
+                <a href="{% url 'posts:blog-edit' slug=post.slug %}">Edit</a>
+                <a href="{% url 'posts:blog-delete' slug=post.slug %}">Delete</a>
+            </div>
+        {% endif %}
+    </div>
+    <h5 class="post-author">{% if post.is_published == False %} NOT {% endif %} Published </h5> by <i>{{ post.author_or_default }}</i> on {{ post.created_at|date:' j F Y' }}</h5>
+    <p class="post-excerpt">{{ post.content|safe|truncatewords:60 }}...</p>
+    <form action="{% url 'posts:post-detail' slug=post.slug%}">
+        <button class="btn btn-submit">Read full</button>
+    </form>
+</article>
+{% endfor %}
+
+{% endblock %}
