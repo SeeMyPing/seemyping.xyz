@@ -1,14 +1,35 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{% static 'assets/home-bg.jpg' %}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{ post.title }}</h1>
+                            <span class="meta">
+                               <h2> {% if post.is_published == False %} <b>DRAFT</b> {% endif %}
+                                Ecrit par {{ post.author_or_default }}
+                                le {{ post.created_at|date:' j F Y' }}</h2>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-
-<article class="post-detail">
-    <h1>{{ post.title }}</h1>
-    <h5>{% if post.is_published == False %} NOT {% endif %} Published by <i>{{ post.author_or_default }}</i> on {{ post.created_at|date:' j F Y' }}</h5>
-    <p>{{ post.content|linebreaks|safe }}</p>
-</article>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        {{ post.content|linebreaks|safe }}
+                    </div>
+                </div>
+            </div>
+        </article>
 
 {% endblock %}
