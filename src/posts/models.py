@@ -12,6 +12,8 @@ class BlogPost(models.Model):
     
     is_published = models.BooleanField(default=False, verbose_name="Published")
     content = models.TextField(blank=True, verbose_name="Content")
+    
+    thumbnail = models.ImageField(upload_to='thumbnails/', blank=True, null=True)
 
     updated_at = models.DateTimeField(auto_now=True)
     created_at =  models.DateTimeField(auto_now_add=True, editable=False) #TODO: Make this immutable

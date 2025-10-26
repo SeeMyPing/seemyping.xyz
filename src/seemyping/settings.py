@@ -20,11 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-SECRET_KEY = os.environ.get("SECRET_KEY", default="CHANGEME")
+SECRET_KEY = os.environ.get("SECRET_KEY", default="CHANGEME_sEKP3BBUdPzLlPLzH9iA5M1cuyQOWd8pVYmWWFOLqzQ5pLt8bIOvY15LUcGGxxC9")
  
 DEBUG = bool(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
 
 # Application definition
@@ -117,7 +117,12 @@ STATICFILES_DIRS = [
     BASE_DIR / "templates/static",
 ]
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

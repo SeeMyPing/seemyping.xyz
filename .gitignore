@@ -11,6 +11,7 @@ __pycache__/
 *.pyc
 *.sqlite3
 db.sqlite3
+staticfiles/
 
 # Virtualenv
 env/
