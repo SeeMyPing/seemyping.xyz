@@ -1,8 +1,3 @@
-resource "scaleway_domain_zone" "seemyping-xyz" {
-  domain    = "seemyping.xyz"
-  subdomain = ""
-}
-
 resource "scaleway_domain_record" "www" {
   dns_zone = "seemyping.xyz"
   name     = "www"

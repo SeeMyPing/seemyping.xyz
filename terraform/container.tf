@@ -29,7 +29,7 @@ resource "scaleway_container" "seemyping-xyz" {
     "DEBUG"   = 0
     "DB_NAME" = var.db_name
     "DB_USER" = var.db_user
-    "DB_HOST" = scaleway_rdb_instance.main.private_network[0].hostname
+    "DB_HOST" = scaleway_rdb_instance.main.private_network[0].ip
     "DB_PORT" = scaleway_rdb_instance.main.private_network[0].port
 
     "S3_REGION"   = scaleway_object_bucket.seemyping-xyz-staticfiles.region
