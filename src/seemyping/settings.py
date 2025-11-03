@@ -16,6 +16,18 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+S3_REGION_NAME = os.environ.get("S3_REGION")
+S3_ACCESS_KEY_ID = os.environ.get("S3_ACCESS_KEY")
+S3_SECRET_ACCESS_KEY = os.environ.get("S3_SECRET_KEY")
+S3_ENDPOINT_URL = os.environ.get("S3_ENDPOINT")
+BUCKET_NAME = os.environ.get("BUCKET_NAME")
+
+DB_NAME = os.environ.get("DB_NAME")
+DB_USER = os.environ.get("DB_USER")
+DB_PASSWORD = os.environ.get("DB_PASSWORD")
+DB_HOST = os.environ.get("DB_HOST")
+DB_PORT = os.environ.get("DB_PORT", default='5432')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -24,7 +36,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", default="CHANGEME_sEKP3BBUdPzLlPLzH9iA
  
 DEBUG = bool(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,7 +67,7 @@ ROOT_URLCONF = 'seemyping.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR / "templates", ],
+        'DIRS': [ BASE_DIR / "templates/", ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,7 +78,26 @@ TEMPLATES = [
         },
     },
 ]
-
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            'bucket_name': BUCKET_NAME,
+            'access_key': S3_ACCESS_KEY_ID,
+            'secret_key': S3_SECRET_ACCESS_KEY,
+            'endpoint_url': S3_ENDPOINT_URL
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            'bucket_name': BUCKET_NAME,
+            'access_key': S3_ACCESS_KEY_ID,
+            'secret_key': S3_SECRET_ACCESS_KEY,
+            'endpoint_url': S3_ENDPOINT_URL
+        },
+    }
+}
 WSGI_APPLICATION = 'seemyping.wsgi.application'
 
 
@@ -75,8 +106,12 @@ WSGI_APPLICATION = 'seemyping.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT
     }
 }
 
@@ -113,11 +148,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "templates/static",
-]
-
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "static/"
+STATICFILES_DIRS = [BASE_DIR / "templates/static"] 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
