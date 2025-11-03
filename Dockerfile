@@ -10,24 +10,21 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1 
 
 
-COPY src/ /app
+COPY app/ /app
 
 RUN pip install --upgrade pip  && \
-    pip install --no-cache-dir -r requirements.txt && \
-    python manage.py collectstatic --noinput
+    pip install --no-cache-dir -r requirements.txt
 
 FROM python:3.13-slim
 RUN useradd -m -r appuser && \
    mkdir /app && \
-   mkdir /db && \
-   mkdir /mediaroot && \
-   chown -R appuser /app /db /media
+   chown -R appuser /app
 
 COPY --from=builder /usr/local/lib/python3.13/site-packages/ /usr/local/lib/python3.13/site-packages/
 COPY --from=builder /usr/local/bin/ /usr/local/bin/
 
 WORKDIR /app
-COPY --chown=appuser:appuser src/ /app
+COPY --chown=appuser:appuser app/ /app
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -40,6 +37,4 @@ USER appuser
 
 EXPOSE 8000
 
-CMD ["gunicorn", "seemyping.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3", "--timeout", "60", "--chdir", "/app"]
-ENTRYPOINT gunicorn seemyping.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 60 --chdir /app
-
+ENTRYPOINT ["gunicorn", "seemyping.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3", "--timeout", "60", "--chdir", "/app"]
