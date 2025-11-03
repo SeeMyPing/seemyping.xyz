@@ -34,7 +34,7 @@ DB_PORT = os.environ.get("DB_PORT", default='5432')
 
 SECRET_KEY = os.environ.get("SECRET_KEY", default="CHANGEME_sEKP3BBUdPzLlPLzH9iA5M1cuyQOWd8pVYmWWFOLqzQ5pLt8bIOvY15LUcGGxxC9")
  
-DEBUG = bool(os.environ.get("DEBUG", default=0))
+DEBUG = bool(os.environ.get("DEBUG", default=False))
 
 ALLOWED_HOSTS = ['*']
 

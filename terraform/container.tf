@@ -26,7 +26,7 @@ resource "scaleway_container" "seemyping-xyz" {
   command = ["gunicorn", "seemyping.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3", "--timeout", "60", "--chdir", "/app"]
 
   environment_variables = {
-    "DEBUG"   = 0
+    "DEBUG"   = "False"
     "DB_NAME" = var.db_name
     "DB_USER" = var.db_user
     "DB_HOST" = scaleway_rdb_instance.main.private_network[0].ip
