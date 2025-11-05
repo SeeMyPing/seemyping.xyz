@@ -28,6 +28,11 @@ provider "scaleway" {
   alias = "init"
 }
 
+data "scaleway_account_project" "seemyping-xyz" {
+  provider = scaleway.init
+  name     = "seemyping-xyz"
+}
+
 provider "scaleway" {
-  project_id = scaleway_account_project.seemyping-xyz.id
+  project_id = data.scaleway_account_project.seemyping-xyz.id
 }

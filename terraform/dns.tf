@@ -1,15 +1,22 @@
-resource "scaleway_domain_record" "www" {
-  dns_zone = "seemyping.xyz"
-  name     = "www"
-  type     = "CNAME"
-  data     = "seemyping.xyz."
-  ttl      = 3600
+data "scaleway_account_project" "default" {
+  name = "default"
 }
 
-resource "scaleway_domain_record" "to-container" {
-  dns_zone = "seemyping.xyz"
-  name     = ""
-  type     = "CNAME"
-  data     = scaleway_container.seemyping-xyz.domain_name
-  ttl      = 3600
+
+resource "scaleway_domain_record" "www" {
+  project_id = data.scaleway_account_project.default.id
+  dns_zone   = "seemyping.xyz"
+  name       = "www"
+  type       = "CNAME"
+  data       = "${scaleway_container.seemyping-xyz.domain_name}."
+  ttl        = 180
+}
+
+resource "scaleway_domain_record" "root" {
+  project_id = data.scaleway_account_project.default.id
+  dns_zone   = "seemyping.xyz"
+  name       = ""
+  type       = "ALIAS"
+  data       = "${scaleway_container.seemyping-xyz.domain_name}."
+  ttl        = 180
 }

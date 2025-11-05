@@ -48,14 +48,14 @@ resource "random_password" "db_password" {
 
 resource "scaleway_rdb_user" "blogdb" {
   instance_id = scaleway_rdb_instance.main.id
-  name        = "dbuser"
+  name        = var.db_user
   password    = random_password.db_password.result
   is_admin    = false
 }
 
 resource "scaleway_rdb_privilege" "main" {
   instance_id   = scaleway_rdb_instance.main.id
-  user_name     = var.db_user
-  database_name = var.db_name
+  user_name     = scaleway_rdb_user.blogdb.name
+  database_name = scaleway_rdb_database.main.name
   permission    = "readwrite"
 }

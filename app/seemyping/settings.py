@@ -21,6 +21,7 @@ S3_ACCESS_KEY_ID = os.environ.get("S3_ACCESS_KEY")
 S3_SECRET_ACCESS_KEY = os.environ.get("S3_SECRET_KEY")
 S3_ENDPOINT_URL = os.environ.get("S3_ENDPOINT")
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
+AWS_S3_SIGNATURE_VERSION = "s3v4"
 
 DB_NAME = os.environ.get("DB_NAME")
 DB_USER = os.environ.get("DB_USER")
@@ -85,7 +86,8 @@ STORAGES = {
             'bucket_name': BUCKET_NAME,
             'access_key': S3_ACCESS_KEY_ID,
             'secret_key': S3_SECRET_ACCESS_KEY,
-            'endpoint_url': S3_ENDPOINT_URL
+            'endpoint_url': S3_ENDPOINT_URL,
+            'signature_version': AWS_S3_SIGNATURE_VERSION
         },
     },
     "staticfiles": {
