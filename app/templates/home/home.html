@@ -11,8 +11,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Nawer - Cloud & Network Engineer</h1>
-                            <span class="subheading">a.k.a seemyping</span>
+                            <h1>Nawer</h1>
+                            <span class="subheading">Cloud & Network Engineer</span>
                         </div>
                     </div>
                 </div>
@@ -28,8 +28,9 @@
                     <!-- Post preview-->
                     <div class="post-preview">
                         <a href="{% url 'posts:post-detail' slug=post.slug%}">
+                        <img class="img-thumbnail" src={{ post.thumbnail.url }}/>
                             <h2 class="post-title">{{ post.title }}</h2>
-                            <h3 class="post-subtitle">{{ post.content|safe|truncatewords:30 }}...</h3>
+                            <h3 class="post-subtitle">{{ post.content|truncatewords:30 }}...</h3>
                         </a>
                         <p class="post-meta">
                             {% if post.is_published == False %} NOT {% endif %}Publié par
@@ -47,7 +48,7 @@
                     <hr class="my-4" />
                     {% endfor %}
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Voir tous →</a></div>
+                    <!---<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Voir tous →</a></div>-->
                 </div>
             </div>
         </div>

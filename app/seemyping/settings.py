@@ -34,8 +34,8 @@ DB_PORT = os.environ.get("DB_PORT", default='5432')
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 SECRET_KEY = os.environ.get("SECRET_KEY", default="CHANGEME_sEKP3BBUdPzLlPLzH9iA5M1cuyQOWd8pVYmWWFOLqzQ5pLt8bIOvY15LUcGGxxC9")
- 
-DEBUG = bool(os.environ.get("DEBUG", default=False))
+
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -120,7 +120,7 @@ def define_database_type():
         return {
             'default': {
                 'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': BASE_DIR / "db.sqlite3",
+                'NAME': BASE_DIR / "database.sqlite3",
             }
         }
     else:

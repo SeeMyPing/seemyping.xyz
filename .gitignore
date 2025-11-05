@@ -53,3 +53,5 @@ Pipfile.lock
 *.swp
 *.swo
 .idea/
+
+app/media/
