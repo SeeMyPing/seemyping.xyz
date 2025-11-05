@@ -79,43 +79,64 @@ TEMPLATES = [
         },
     },
 ]
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-            'bucket_name': BUCKET_NAME,
-            'access_key': S3_ACCESS_KEY_ID,
-            'secret_key': S3_SECRET_ACCESS_KEY,
-            'endpoint_url': S3_ENDPOINT_URL,
-            'signature_version': AWS_S3_SIGNATURE_VERSION
-        },
-    },
-    "staticfiles": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-            'bucket_name': BUCKET_NAME,
-            'access_key': S3_ACCESS_KEY_ID,
-            'secret_key': S3_SECRET_ACCESS_KEY,
-            'endpoint_url': S3_ENDPOINT_URL
-        },
-    }
-}
+
+def define_storage_type():
+    if DEBUG:
+        return {
+            "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"},
+            "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+        }
+    else:
+        return {
+            "default": {
+                "BACKEND": "storages.backends.s3.S3Storage",
+                "OPTIONS": {
+                    'bucket_name': BUCKET_NAME,
+                    'access_key': S3_ACCESS_KEY_ID,
+                    'secret_key': S3_SECRET_ACCESS_KEY,
+                    'endpoint_url': S3_ENDPOINT_URL,
+                    'signature_version': AWS_S3_SIGNATURE_VERSION
+                },
+            },
+            "staticfiles": {
+                "BACKEND": "storages.backends.s3.S3Storage",
+                "OPTIONS": {
+                    'bucket_name': BUCKET_NAME,
+                    'access_key': S3_ACCESS_KEY_ID,
+                    'secret_key': S3_SECRET_ACCESS_KEY,
+                    'endpoint_url': S3_ENDPOINT_URL
+                },
+            }
+        }
+
+STORAGES = define_storage_type()
 WSGI_APPLICATION = 'seemyping.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT
-    }
-}
+def define_database_type():
+    if DEBUG:
+        return {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / "db.sqlite3",
+            }
+        }
+    else:
+        return {
+                'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': DB_NAME,
+                'USER': DB_USER,
+                'PASSWORD': DB_PASSWORD,
+                'HOST': DB_HOST,
+                'PORT': DB_PORT
+            }
+        }
+    
+    
+DATABASES = define_database_type()
 
 
 # Password validation
