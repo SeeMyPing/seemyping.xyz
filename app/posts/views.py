@@ -24,6 +24,8 @@ class BlogPostCreate(CreateView):
     fields = [
         'title',
         'content',
+        'thumbnail',
+        'is_published'
     ]
 
 @method_decorator(login_required, name='dispatch')

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block head %}
+{% endblock %}
 
 {% block title %}Post creation{% endblock %}
 
@@ -25,7 +27,7 @@
                         <div class="my-5">
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <button type="submit" class="btn btn-submit">Create post</button>
 </form>
 </div>

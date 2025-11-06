@@ -55,3 +55,4 @@ Pipfile.lock
 .idea/
 
 app/media/
+app/static/
