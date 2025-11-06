@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+
+{% endblock %}
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('{% static "assets/home-bg.jpg" %}')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h2 align="center">👋 Hi, I'm Nawer Kezal</h2>
+                        <span align="center">Infrastructure & Cloud Engineer, DevOps & Automation enthusiast</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+
+            <hr>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped align-middle text-center" style="margin:auto; max-width: 1500px; min-width: 1100px; font-size: 1.18rem;">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col" style="width:10%;">OS</th>
+                            <th scope="col" style="width:10%;">Cloud</th>
+                            <th scope="col" style="width:12%;">IaC & Config</th>
+                            <th scope="col" style="width:11%;">Containers</th>
+                            <th scope="col" style="width:18%;">Networking</th>
+                            <th scope="col" style="width:9%;">Monitoring</th>
+                            <th scope="col" style="width:10%;">Virtualization</th>
+                            <th scope="col" style="width:13%;">Backend</th>
+                            <th scope="col" style="width:7%;">Other</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img style="max-width: 115px;" class="img-fluid mb-1" src="https://img.shields.io/badge/OS-Linux-blue?logo=linux" alt="Linux"/><br>
+                                <img style="max-width: 115px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/OS-Windows-0078D6?logo=windows" alt="Windows"/><br>
+                                <img style="max-width: 115px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/OS-macOS-000000?logo=apple&logoColor=white" alt="macOS"/><br>
+                                <img style="max-width: 115px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/OS-FreeBSD-AB2B28?logo=freebsd" alt="FreeBSD"/>
+                            </td>
+                            <td>
+                                <img style="max-width: 130px;" class="img-fluid mb-1" src="https://img.shields.io/badge/Cloud-AWS-orange?logo=amazonaws" alt="AWS"/><br>
+                                <img style="max-width: 130px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Cloud-Scaleway-6EC1E4?logo=scaleway" alt="Scaleway"/>
+                            </td>
+                            <td>
+                                <img style="max-width: 120px;" class="img-fluid mb-1" src="https://img.shields.io/badge/IaC-Terraform-7B42BC?logo=terraform" alt="Terraform"/><br>
+                                <img style="max-width: 120px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Config-Ansible-EE0000?logo=ansible" alt="Ansible"/>
+                            </td>
+                            <td>
+                                <img style="max-width: 130px;" class="img-fluid mb-1" src="https://img.shields.io/badge/Containers-Kubernetes-326CE5?logo=kubernetes" alt="Kubernetes"/><br>
+                                <img style="max-width: 130px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Containers-Docker-2496ED?logo=docker" alt="Docker"/>
+                            </td>
+                            <td>
+                                <img style="max-width: 110px;" class="img-fluid mb-1" src="https://img.shields.io/badge/Networking-Cisco-1BA0D7?logo=cisco" alt="Cisco"/><br>
+                                <img style="max-width: 110px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Networking-Juniper-009639?logo=juniper%20networks" alt="Juniper"/><br>
+                                <img style="max-width: 110px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Networking-Meraki-5DC1F2?logo=cisco&logoColor=white" alt="Meraki"/><br>
+                                <img style="max-width: 110px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Networking-FortiGate-ED1C24?logo=fortinet&logoColor=white" alt="Fortigate"/><br>
+                                <img style="max-width: 110px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Networking-VyOS-F2B134?logo=vyos" alt="VyOS"/><br>
+                                <img style="max-width: 110px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Networking-pfSense-212121?logo=pfsense&logoColor=white" alt="pfSense"/><br>
+                                <img style="max-width: 110px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Networking-Ubiquiti-055791?logo=ubiquiti&logoColor=white" alt="Ubiquiti"/>
+                            </td>
+                            <td>
+                                <img style="max-width: 120px;" class="img-fluid mb-1" src="https://img.shields.io/badge/Monitoring-Grafana-F46800?logo=grafana" alt="Grafana"/><br>
+                                <img style="max-width: 120px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Monitoring-Zabbix-d40000" alt="Zabbix"/>
+                            </td>
+                            <td>
+                                <img style="max-width: 120px;" class="img-fluid mb-1" src="https://img.shields.io/badge/Virtualization-VMware-607078?logo=vmware" alt="VMware"/><br>
+                                <img style="max-width: 120px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Virtualization-Proxmox-E57000?logo=proxmox" alt="Proxmox"/>
+                            </td>
+                            <td>
+                                <img style="max-width: 120px;" class="img-fluid mb-1" src="https://img.shields.io/badge/Python-3-blue?logo=python" alt="Python 3"/><br>
+                                <img style="max-width: 120px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Django-Python-green?logo=django" alt="Django"/><br>
+                                <img style="max-width: 120px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/PHP-777BB4?logo=php&logoColor=white" alt="PHP"/><br>
+                                <img style="max-width: 120px;" class="img-fluid mb-1 mt-1" src="https://img.shields.io/badge/Symfony-black?logo=symfony&logoColor=white" alt="Symfony"/>
+                            </td>
+                            <td>
+                                <img style="max-width: 120px;" class="img-fluid mb-1" src="https://img.shields.io/badge/Active%20Directory-0078D6?logo=microsoft" alt="Active Directory"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr>
+
+            <h2>🧭 About Me</h2>
+
+            <p>
+                I’m an <strong>Infrastructure & Cloud Engineer</strong> with <strong>7+ years of experience</strong> designing and operating large-scale, resilient environments.<br>
+                My expertise spans from <strong>network architecture</strong> and <strong>datacenter operations</strong> to <strong>AWS Cloud</strong>, <strong>automation</strong>, and <strong>DevOps</strong> practices.
+            </p>
+
+            <p>
+                I build, migrate, and secure infrastructures using modern tools and an engineering mindset focused on <strong>scalability</strong>, <strong>resilience</strong>, and <strong>clarity</strong>.<br>
+                I also enjoy translating complex systems into understandable solutions — both for teams and clients.
+            </p>
+
+            <p>
+                🌍 Based in <strong>Grenoble, France</strong> — working with <strong>international teams</strong> (Amsterdam, Berlin, Barcelona, Milan).<br>
+                ⚙️ Always exploring new paradigms in <strong>network automation</strong>, <strong>fiber optics</strong>, and <strong>hybrid cloud architectures</strong>.
+            </p>
+
+            <hr>
+
+            <h2>🧰 Core Skills</h2>
+
+            <h3>🖧 Infrastructure & Networking</h3>
+            <ul>
+                <li><strong>Design & Operations</strong>: LAN/WAN, VLAN, BGP, OSPF, MPLS, VPN, QoS</li>
+                <li><strong>Fiber Optic Tech</strong>: DWDM, SFP+/QSFP, OTDR, fusion splicing</li>
+                <li><strong>Routing & Security</strong>: Cisco IOS/XE, Juniper JunOS, Fortigate, MikroTik, pfSense, VyOS</li>
+                <li><strong>Datacenter</strong>: VMware ESXi, Proxmox, Veeam Backup, SAN/NAS storage, Nutanix</li>
+                <li><strong>Monitoring</strong>: Prometheus, Grafana, ELK Stack, Zabbix</li>
+            </ul>
+
+            <h3>☁️ Cloud & Automation</h3>
+            <ul>
+                <li><strong>AWS</strong>: EC2, VPC, Route53, S3, IAM, Transit Gateway, CloudWatch, VPC Peerings, Security Groups</li>
+                <li><strong>Infrastructure as Code</strong>: Terraform (custom modules, AWS automation)</li>
+                <li><strong>Configuration & CI/CD</strong>: Ansible, GitLab CI, GitOps workflows</li>
+                <li><strong>Containers</strong>: Docker, Kubernetes, Helm</li>
+                <li><strong>Scripting</strong>: Bash, Python</li>
+            </ul>
+
+            <h3>⚙️ Systems</h3>
+            <ul>
+                <li>Linux (Debian, RHEL, Ubuntu) | Windows Server | Active Directory</li>
+                <li>Security hardening, patch management, log analysis, backup strategies</li>
+            </ul>
+
+            <h3>🤝 Collaboration & Methods</h3>
+            <ul>
+                <li>Agile / Scrum / Kanban</li>
+                <li>Technical documentation (EN/FR)</li>
+                <li>Cross-team communication & technical coaching</li>
+            </ul>
+
+            <hr>
+
+            <h2>💼 Professional Experience</h2>
+
+            <h3>🟠 Groupe Leboncoin / Adevinta</h3>
+            <p>
+                <strong>Infrastructure & Cloud Engineer (2022 – 2024)</strong><br>
+                – Managed hybrid datacenter infrastructures across Europe<br>
+                – Designed AWS cloud architectures and migration strategies<br>
+                – Automated network provisioning using Terraform & internal tools<br>
+                – Led onboarding and training for multi-site international teams
+            </p>
+
+            <h3>🔵 Axess</h3>
+            <p>
+                <strong>Field Engineer (2021 – 2022)</strong><br>
+                – L2/L3 support for field teams, audits & fiber network upgrades<br>
+                – Customer technical advisory & infrastructure improvement projects
+            </p>
+
+            <h3>🟢 Naitways SAS</h3>
+            <p>
+                <strong>Infrastructure Engineer (2018 – 2021)</strong><br>
+                – Managed critical IT infrastructures and customer datacenters<br>
+                – Developed incident management and on-call response procedures
+            </p>
+
+            <h3>🧑‍💻 Freelance Consultant (2016 – 2023)</h3>
+            <p>
+                – Designed and maintained IT infrastructures for healthcare clients<br>
+                – Automated data collection for <strong>Holter</strong> devices and patient systems<br>
+                – Provided technical consulting for SMBs and medical practices
+            </p>
+
+            <hr>
+
+            <h2>🎓 Education & Certifications</h2>
+
+            <ul>
+                <li>🎓 <strong>MSc in Computer Engineering</strong> – IN'TECH / ESIEA Group</li>
+                <li>🎓 <strong>BSc</strong> – ESGI</li>
+                <li>🎓 <strong>Associate Degree</strong> – ETNA (Computer Science)</li>
+                <li>🏅 <strong>CCNA I & II</strong> – Cisco Certified</li>
+                <li>🏅 <strong>RIPE Database Associate</strong> – RIPE NCC</li>
+                <li>🏅 <strong>AWS Certified Solutions Architect – Associate (in progress)</strong></li>
+            </ul>
+
+            <hr>
+
+            <h2>🌍 Languages</h2>
+            <ul class="list-group list-group-horizontal justify-content-center mb-3" style="font-size: 1.12em; flex-wrap: wrap;">
+                <li class="list-group-item border-0 bg-transparent" style="min-width: 140px;">
+                    🇫🇷 <strong>French</strong> <span class="text-muted">Native</span>
+                </li>
+                <li class="list-group-item border-0 bg-transparent" style="min-width: 140px;">
+                    🇬🇧 <strong>English</strong> <span class="text-muted">C1</span>
+                </li>
+                <li class="list-group-item border-0 bg-transparent" style="min-width: 140px;">
+                    🇪🇸 <strong>Spanish</strong> <span class="text-muted">A2</span>
+                </li>
+                <li class="list-group-item border-0 bg-transparent" style="min-width: 140px;">
+                    🇩🇿 <strong>Arabic</strong> <span class="text-muted">A1</span>
+                </li>
+            </ul>
+
+            <hr>
+
+            <h2>⚡ Fun Facts</h2>
+            <ul class="list-group list-group-flush" style="max-width: 660px; margin: 0 auto 2em auto; font-size:1.12em;">
+                <li class="list-group-item d-flex align-items-center" style="border: none;">
+                    <span style="font-size:1.5em; margin-right: 12px;">🏍️</span>
+                    <span>Passionate about <strong>motorcycles</strong> <span style="font-size: 0.70em; color:#888;">vroum vroum</span></span>
+                </li>
+                <li class="list-group-item d-flex align-items-center" style="border: none;">
+                    <span style="font-size:1.5em; margin-right: 12px;">🛠️</span>
+                    <span>Enjoys turning messy infrastructures into <strong>clean, automated systems</strong></span>
+                </li>
+                <li class="list-group-item d-flex align-items-center" style="border: none;">
+                    <span style="font-size:1.5em; margin-right: 12px;">👨‍🏫</span>
+                    <span>Loves teaching and simplifying complex concepts for teams and clients</span>
+                </li>
+            </ul>
+
+            <hr>
+
+            <h2>📫 Contact</h2>
+
+            <div class="row justify-content-center mb-4" style="gap: 18px;">
+                <div class="col-auto text-center">
+                    <a href="mailto:nawer@kezal.fr" target="_blank" style="text-decoration: none;">
+                        <img src="https://img.shields.io/badge/Email-nawer@kezal.fr-red?logo=gmail" alt="Email" style="margin-bottom: 8px;" />
+                    </a>
+                </div>
+                <div class="col-auto text-center">
+                    <a href="https://www.linkedin.com/in/rostankezal" target="_blank" style="text-decoration: none;">
+                        <img src="https://img.shields.io/badge/LinkedIn-rostankezal-blue?logo=linkedin" alt="LinkedIn" style="margin-bottom: 8px;" />
+                    </a>
+                </div>
+                <div class="col-auto text-center">
+                    <img src="https://img.shields.io/badge/Location-Grenoble%2C%20France-lightgrey?logo=googlemaps" alt="Location" style="margin-bottom: 8px;" />
+                </div>
+            </div>
+
+
+            <hr>
+
+            <p class="center"><em>⭐️ “Automate what you can, document what you can’t, and understand both.”</em></p>
+
+        </div>
+    </div>
+{% endblock %}

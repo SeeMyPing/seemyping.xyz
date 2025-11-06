@@ -20,10 +20,12 @@ from django.conf.urls.static import static
 
 from posts.views import BlogHome
 from seemyping import settings
+from seemyping import views
 
 
 urlpatterns = [
     path('', BlogHome.as_view(), name="home"),
     path('manage/', admin.site.urls),
     path('blog/', include('posts.urls')),
+    path('about/', views.about)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
