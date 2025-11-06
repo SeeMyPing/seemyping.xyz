@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}{{ post.title }}{% endblock %}
-
+{% block head %}
+    {% include 'django_quill/media.html' %}
+{% endblock %}
 {% block content %}
         <!-- Page Header-->
         <header class="masthead" style="background-image: url('{{ post.thumbnail.url }}')">
@@ -26,7 +28,7 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        {{ post.content | safe }}
+                        {{ post.content.html | safe }}
                     </div>
                 </div>
             </div>

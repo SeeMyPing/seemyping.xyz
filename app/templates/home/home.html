@@ -30,7 +30,7 @@
                         <a href="{% url 'posts:post-detail' slug=post.slug%}">
                         <img class="img-thumbnail" src={{ post.thumbnail.url }}/>
                             <h2 class="post-title">{{ post.title }}</h2>
-                            <h3 class="post-subtitle">{{ post.content| safe | truncatewords:30 }}...</h3>
+                            <h3 class="post-subtitle">{{ post.content.html | safe | truncatewords:30 }}...</h3>
                         </a>
                         <p class="post-meta">
                             {% if post.is_published == False %} NOT {% endif %}Publié par

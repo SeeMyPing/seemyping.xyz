@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
+    {% include 'django_quill/media.html' %}
 {% endblock %}
 
 {% block title %}Post creation{% endblock %}
@@ -28,10 +29,13 @@
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
+
+
     <button type="submit" class="btn btn-submit">Create post</button>
 </form>
 </div>
 </div>
 </div>
 </div>
+
 {% endblock %}

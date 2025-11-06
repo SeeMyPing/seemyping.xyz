@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 
+from django_quill.fields import QuillField
 
 User = get_user_model()
 
@@ -12,7 +13,7 @@ class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     
     is_published = models.BooleanField(default=False, verbose_name="Published")
-    content = models.TextField(blank=True, verbose_name="Content")
+    content = QuillField()
     
     thumbnail = models.ImageField(upload_to='thumbnails/', blank=True, null=True)
 
